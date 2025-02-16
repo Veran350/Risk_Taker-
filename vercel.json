@@ -1,0 +1,12 @@
+{
+    "rewrites": [{ "source": "/(.*)", "destination": "/public/index.html" }],
+    "headers": [
+        {
+            "source": "/(.*)",
+            "headers": [
+                { "key": "X-Robots-Tag", "value": "noindex" },
+                { "key": "Permissions-Policy", "value": "interest-cohort=()" }
+            ]
+        }
+    ]
+}
