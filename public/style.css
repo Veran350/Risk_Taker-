@@ -1,0 +1,39 @@
+body {
+    background: #0f172a;
+    color: #94a3b8;
+    font-family: system-ui;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.container {
+    background: #1e293b;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #334155;
+}
+
+input[type="url"] {
+    width: 100%;
+    padding: 12px;
+    margin: 1rem 0;
+    background: #0f172a;
+    border: 1px solid #334155;
+    color: #e2e8f0;
+    border-radius: 4px;
+}
+
+button {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.loading { color: #64748b; }
+.success { color: #4ade80; }
+.error { color: #f87171; }
