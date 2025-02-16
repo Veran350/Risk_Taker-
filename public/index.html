@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Referral Marketing Tool</title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="robots" content="noindex">
+</head>
+<body>
+    <div class="container">
+        <h1>🔗 Smart Referral Manager</h1>
+        <form id="triggerForm">
+            <input type="url" id="target" placeholder="Enter website URL" required>
+            <button type="submit">Generate Referrals</button>
+        </form>
+        <div id="stats"></div>
+    </div>
+    <script>
+        document.getElementById('triggerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const url = document.getElementById('target').value;
+            const stats = document.getElementById('stats');
+            
+            stats.innerHTML = '<div class="loading">Initializing...</div>';
+            
+            try {
+                const res = await fetch('/api/attack', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({url})
+                });
+                
+                const data = await res.json();
+                stats.innerHTML = `
+                    <div class="success">
+                        🚀 ${data.accounts} accounts created<br>
+                        🔥 ${data.clicks} referral clicks<br>
+                        ⏳ Next cycle: ${data.next}
+                    </div>
+                `;
+            } catch {
+                stats.innerHTML = '<div class="error">Service unavailable</div>';
+            }
+        });
+    </script>
+</body>
+</html>
